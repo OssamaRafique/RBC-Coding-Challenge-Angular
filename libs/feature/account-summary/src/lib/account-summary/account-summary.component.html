@@ -1,27 +1,45 @@
-<h1>Account Summary</h1>
-<!-- TODO: 6. Angular ngFor, refactor, and bonus points -->
-<!-- TODO: 7. Accessibility, table markup, form control -->
-<div class="account-summary">
-  <section>
-    <table>
+<!-- TODO: 6. (Done) Angular ngFor, refactor, and bonus points -->
+<!--Solution: Added trackBy to minimize re-render. Refactored logic for filtering to avoid filter at every change detection cycle-->
+<!-- TODO: 7. (Done) Accessibility, table markup, form control -->
+<!--Solution: Refactored table, Added thead, tbody and area attributes to make the page more accessible. Also used reactive form for filtering account-->
+<section class="accounts-summary">
+  <section class="accounts-head" aria-labelledby="account-summary-heading">
+    <h1 id="account-summary-heading">Account Summary</h1>
+    <form [formGroup]="formInstance">
+      <fieldset>
+        <label for="accounts-filter">Filter Account Type: </label>
+        <select id="accounts-filter" [formControlName]="accountFilterKey">
+          <option value="">None</option>
+          <option value="cad">CAD</option>
+          <option value="usd">USD</option>
+        </select>
+      </fieldset>
+    </form>
+  </section>
+  <table class="accounts-table" aria-label="Account summary table">
+    <thead>
       <tr>
         <th scope="col">Account Name</th>
         <th scope="col">Balance</th>
-        <th scope="col">
-          <label>Account Type</label>
-          <select [(ngModel)]="accountsFilter">
-            <option value="">None</option>
-            <option value="cad">CAD</option>
-            <option value="usd">USD</option>
-          </select>
+        <th scope="col">Account Type</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let account of accounts$ | async; trackBy: trackByIdentity">
+        <!-- TODO: 8. (Done) route to detail view -->
+        <th>
+          <a
+            [routerLink]="['/account', account.id]"
+            [attr.aria-label]="
+              account.id + ' Click to visit account details page'
+            "
+          >
+            {{ account.id }}
+          </a>
         </th>
+        <td>{{ account.balance }}</td>
+        <td>{{ account.currency | uppercase }}</td>
       </tr>
-      <tr *ngFor="let account of filterAccounts(accounts)">
-        <!-- TODO: 8. route to detail view -->
-        <th><a>{{account.id}}</a></th>
-        <td>{{account.balance}}</td>
-        <td>{{account.currency}}</td>
-      </tr>
-    </table>
-  </section>
-</div>
+    </tbody>
+  </table>
+</section>

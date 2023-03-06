@@ -1,3 +1,9 @@
-<div>
-  <a *ngFor="let item of sideNavItems" [routerLink]="item.link">{{ item.title }}</a>
-</div>
+<nav aria-label="Side navigation">
+  <ul>
+    <ng-container *ngFor="let item of sideNavItems">
+      <li>
+        <a [routerLink]="item.link" role="link">{{ item.title }}</a>
+      </li>
+    </ng-container>
+  </ul>
+</nav>

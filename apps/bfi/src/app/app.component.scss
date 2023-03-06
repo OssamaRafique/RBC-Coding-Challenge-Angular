@@ -1,10 +1,13 @@
-// TODO: 5. Fixing one thing may break other things, but sometimes it has to be done
-main {
-  // try to keep these
+@use './variables' as v;
+// TODO: 5. (Done) Fixing one thing may break other things, but sometimes it has to be done
+// Solution: Wrapped everything inside app class. Added a new row definition for navigation menu since it's no longer part of main as per semantic guidelines
+
+.app {
   display: grid;
-  grid-template-rows: 40px 1fr 40px;
+  grid-template-rows: 40px auto 1fr 40px;
   min-height: 100vh;
-  // don't  really care about the below
-  padding-left: 20px;
-  padding-right: 20px;
+
+  main {
+    padding: 0 v.$brand-padding;
+  }
 }

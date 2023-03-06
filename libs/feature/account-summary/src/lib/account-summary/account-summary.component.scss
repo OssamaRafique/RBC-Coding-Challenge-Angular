@@ -1,7 +1,25 @@
-th[scope='col'] {
-  border-bottom: 1px solid #333;
-}
+@use './variables' as v;
 
-tr:nth-child(2n) {
-  background-color: #DEDEDE;
+.accounts-summary {
+  .accounts-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  table {
+    width: 100%;
+    text-align: center;
+
+    thead {
+      th[scope='col'] {
+        border-bottom: 1px solid v.$brand-borders;
+      }
+    }
+    tbody {
+      tr:nth-child(2n) {
+        background-color: v.$brand-font-color-inverted;
+      }
+    }
+  }
 }

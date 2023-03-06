@@ -1,6 +1,6 @@
-@use "theme";
+@use 'theme';
 
-div.flex {
+header.flex {
   height: 40px;
   background: theme.$brand-bg;
   color: white;

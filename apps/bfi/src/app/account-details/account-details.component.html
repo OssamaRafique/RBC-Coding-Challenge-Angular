@@ -1,4 +1,15 @@
-<h1>Account Details</h1>
+<section
+  *ngIf="account$ | async as account; else noAccountFound"
+  class="account-details"
+  aria-labelledby="account-details-heading"
+>
+  <h1 id="account-details-heading">Account Details</h1>
 
-<p>Account ID</p>
-<!-- TODO: how to retrieve account id and other account details in this route? -->
+  <h5>Account Id: {{ account.id }}</h5>
+  <h5>Account Balance: {{ account.balance }}</h5>
+  <h5>Account Currency: {{ account.currency | uppercase }}</h5>
+</section>
+
+<ng-template #noAccountFound>
+  <h1>No Account With Such Id Found</h1>
+</ng-template>

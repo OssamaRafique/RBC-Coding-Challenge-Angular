@@ -5,8 +5,8 @@
     "bfi": "apps/bfi",
     "bfi-e2e": "apps/bfi-e2e",
     "feature-account-summary": "libs/feature/account-summary",
-    "shared-models": "libs/shared/models",
     "shared-components": "libs/shared/components",
+    "shared-models": "libs/shared/models",
     "shared-services": "libs/shared/services",
     "shared-store": "libs/shared/store"
   }

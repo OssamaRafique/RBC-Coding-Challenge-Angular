@@ -18,8 +18,8 @@
       "@bfi/feature/account-summary": [
         "libs/feature/account-summary/src/index.ts"
       ],
-      "@bfi/shared/models": ["libs/shared/models/src/index.ts"],
       "@bfi/shared/components": ["libs/shared/components/src/index.ts"],
+      "@bfi/shared/models": ["libs/shared/models/src/index.ts"],
       "@bfi/shared/services": ["libs/shared/services/src/index.ts"],
       "@bfi/shared/store": ["libs/shared/store/src/index.ts"]
     }

@@ -1,12 +1,19 @@
 <!-- NOTE: changes not just in this component -->
-<!-- TODO: 3. Use Semantic HTML properly, what's wrong with this usage of main -->
-<!-- TODO: 4. Our header and footer are suppose to fill the full width of the page and sit flush to the top / bottom -->
+<!-- TODO: 3. (Done) Use Semantic HTML properly, what's wrong with this usage of main -->
+<!--Solution: 
+  Used semantic html for header, nav and footer.
+  Main content should be unique. It should not contain any items that are repeated across different pages e.g Header, Footer, Nav
+-->
+<!-- TODO: 4. (Done) Our header and footer are suppose to fill the full width of the page and sit flush to the top / bottom -->
 <!-- e.g. no whitespace around the header / footer -->
-<main>
+
+<div class="app">
   <pre-header [userName]="userName$"></pre-header>
-  <section>
-    <pre-side-nav [sideNavItems]="sideNavItems"></pre-side-nav>
-    <router-outlet></router-outlet>
-  </section>
+  <pre-side-nav [sideNavItems]="sideNavItems"></pre-side-nav>
+  <main>
+    <section>
+      <router-outlet></router-outlet>
+    </section>
+  </main>
   <pre-footer></pre-footer>
-</main>
+</div>

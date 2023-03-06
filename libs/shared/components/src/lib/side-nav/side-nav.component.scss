@@ -1,14 +1,26 @@
-@import "theme";
+@use 'theme';
 
-// TODO: 14. fix the deprecation
-a {
-  @include link();
-  padding-top: $unit;
-  padding-bottom: $unit;
-  display: inline-block;
-  &:hover {
-    background: $brand-bg;
-    color: white;
-    transition: 0.3s;
+// TODO: 14. (Done) fix the deprecation
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+
+  li {
+    display: inline-block;
+
+    a {
+      display: inherit;
+      @include theme.link();
+      padding-top: theme.$unit;
+      padding-bottom: theme.$unit;
+
+      &:hover {
+        background: theme.$brand-bg;
+        color: white;
+        transition: 0.3s;
+      }
+    }
   }
 }
